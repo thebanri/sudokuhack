@@ -239,7 +239,7 @@ public class Sudoku {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            
                         }
 
                         if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
@@ -248,7 +248,7 @@ public class Sudoku {
 
                                     if ((i == list.getFirst().getFirst().getFirst() && k == list.getFirst().getFirst().get(1)) || (i == list.getFirst().get(1).getFirst() && k == list.getFirst().get(1).get(1))) {
                                         matrixlist[i][k].retainAll(numbs);
-                                        System.out.println("Here" + matrixlist[i][k]);
+                                        
                                     }
 
                                 }
@@ -270,7 +270,7 @@ public class Sudoku {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            
                         }
 
                         if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
@@ -278,7 +278,7 @@ public class Sudoku {
                                 for (int k = 0; k < 9; k++) {
                                     if ((k == list.getFirst().getFirst().getFirst() && j == list.getFirst().getFirst().get(1)) || (k == list.getFirst().get(1).getFirst() && j == list.getFirst().get(1).get(1))) {
                                         matrixlist[k][j].retainAll(numbs);
-                                        System.out.println("Here" + matrixlist[k][j]);
+                                        
                                     }
 
                                 }
@@ -319,7 +319,7 @@ public class Sudoku {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            
                         }
 
                         if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
@@ -328,7 +328,7 @@ public class Sudoku {
                                     for (int col = startCol; col < startCol + 3; col++) {
                                         if ((row == list.getFirst().getFirst().getFirst() && col == list.getFirst().getFirst().get(1)) || (row == list.getFirst().get(1).getFirst() && col == list.getFirst().get(1).get(1))) {
                                             matrixlist[row][col].retainAll(numbs);
-                                            System.out.println("Here" + matrixlist[row][col]);
+                                            
                                         }
                                     }
                                 }
@@ -542,8 +542,6 @@ public class Sudoku {
                             tempNumbers.remove((Integer) matrix[row][col]);
                         }
                     }
-
-                    System.out.println("(" + i + ", " + j + "): " + tempNumbers);
                     if (tempNumbers.size() == 1) {
                         matrix[i][j] = tempNumbers.get(0);
                         changed = true;
@@ -611,11 +609,11 @@ public class Sudoku {
                         }
                     }
 
-                    System.out.println(list2);
+    
                     for (int x = 1; x < list2.size(); x++) {
                         list2.get(0).removeAll(list2.get(x));
                     }
-                    System.out.println(list2);
+                    
 
                     int startRow = i - i % 3;
                     int startCol = j - j % 3;
