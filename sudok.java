@@ -239,7 +239,7 @@ public class sudok {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            //System.out.println(list);
                         }
 
                         if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
@@ -248,7 +248,7 @@ public class sudok {
 
                                     if ((i == list.get(0).get(0).get(0) && k == list.get(0).get(0).get(1)) || (i == list.get(0).get(1).get(0) && k == list.get(0).get(1).get(1))) {
                                         matrixlist[i][k].retainAll(numbs);
-                                        System.out.println("Here" + matrixlist[i][k]);
+                                        //System.out.println("Here" + matrixlist[i][k]);
                                     }
 
                                 }
@@ -270,7 +270,7 @@ public class sudok {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            //System.out.println(list);
                         }
 
                         if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
@@ -278,7 +278,7 @@ public class sudok {
                                 for (int k = 0; k < 9; k++) {
                                     if ((k == list.get(0).get(0).get(0) && j == list.get(0).get(0).get(1)) || (k == list.get(0).get(1).get(0) && j == list.get(0).get(1).get(1))) {
                                         matrixlist[k][j].retainAll(numbs);
-                                        System.out.println("Here" + matrixlist[k][j]);
+                                        //System.out.println("Here" + matrixlist[k][j]);
                                     }
 
                                 }
@@ -319,7 +319,7 @@ public class sudok {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            System.out.println(list);
+                            //System.out.println(list);
                         }
 
                         if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
@@ -328,7 +328,7 @@ public class sudok {
                                     for (int col = startCol; col < startCol + 3; col++) {
                                         if ((row == list.get(0).get(0).get(0) && col == list.get(0).get(0).get(1)) || (row == list.get(0).get(1).get(0) && col == list.get(0).get(1).get(1))) {
                                             matrixlist[row][col].retainAll(numbs);
-                                            System.out.println("Here" + matrixlist[row][col]);
+                                            //System.out.println("Here" + matrixlist[row][col]);
                                         }
                                     }
                                 }
@@ -543,7 +543,7 @@ public class sudok {
                         }
                     }
 
-                    System.out.println("(" + i + ", " + j + "): " + tempNumbers);
+                    //System.out.println("(" + i + ", " + j + "): " + tempNumbers);
                     if (tempNumbers.size() == 1) {
                         matrix[i][j] = tempNumbers.get(0);
                         changed = true;
@@ -611,11 +611,11 @@ public class sudok {
                         }
                     }
 
-                    System.out.println(list2);
+                    //System.out.println(list2);
                     for (int x = 1; x < list2.size(); x++) {
                         list2.get(0).removeAll(list2.get(x));
                     }
-                    System.out.println(list2);
+                    //System.out.println(list2);
 
                     int startRow = i - i % 3;
                     int startCol = j - j % 3;
