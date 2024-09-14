@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class sudo {
+public class Sudoku {
     public static void main(String[] args) {
 
         int[][] matrix = {
@@ -156,23 +156,23 @@ public class sudo {
                             }
                         }
                         if (value == 2) {
-                            if (lists.getFirst().getFirst().equals(lists.get(1).getFirst())) {
+                            if (lists.get(0).get(0).equals(lists.get(1).get(0))) {
                                 for (int k = 0; k < 9; k++) {
-                                    if (k != lists.getFirst().get(1) && k != lists.get(1).get(1)) {
-                                        matrixlist[lists.getFirst().getFirst()][k].remove(Integer.valueOf(x));
-                                        if (matrixlist[lists.getFirst().getFirst()][k].size() == 1) {
-                                            matrix[lists.getFirst().getFirst()][k] = matrixlist[lists.getFirst().getFirst()][k].get(0);
+                                    if (k != lists.get(0).get(1) && k != lists.get(1).get(1)) {
+                                        matrixlist[lists.get(0).get(0)][k].remove(Integer.valueOf(x));
+                                        if (matrixlist[lists.get(0).get(0)][k].size() == 1) {
+                                            matrix[lists.get(0).get(0)][k] = matrixlist[lists.get(0).get(0)][k].get(0);
                                             putNumbers(matrix, matrixlist);
                                         }
                                     }
                                 }
-                            } else if (lists.getFirst().get(1).equals(lists.get(1).get(1))) {
+                            } else if (lists.get(0).get(1).equals(lists.get(1).get(1))) {
 
                                 for (int k = 0; k < 9; k++) {
-                                    if (k != lists.getFirst().getFirst() && k != lists.get(1).getFirst()) {
-                                        matrixlist[k][lists.getFirst().get(1)].remove(Integer.valueOf(x));
-                                        if (matrixlist[k][lists.getFirst().get(1)].size() == 1) {
-                                            matrix[k][lists.getFirst().get(1)] = matrixlist[k][lists.getFirst().get(1)].get(0);
+                                    if (k != lists.get(0).get(0) && k != lists.get(1).get(0)) {
+                                        matrixlist[k][lists.get(0).get(1)].remove(Integer.valueOf(x));
+                                        if (matrixlist[k][lists.get(0).get(1)].size() == 1) {
+                                            matrix[k][lists.get(0).get(1)] = matrixlist[k][lists.get(0).get(1)].get(0);
                                             putNumbers(matrix, matrixlist);
                                         }
                                     }
@@ -204,8 +204,8 @@ public class sudo {
                             }
                         }
                         if (value == 1) {
-                            int a = lists.getFirst().getFirst();
-                            int b = lists.getFirst().get(1);
+                            int a = lists.get(0).get(0);
+                            int b = lists.get(0).get(1);
                             matrix[a][b] = x;
                             solveSudoku(matrix, matrixlist);
 
@@ -239,16 +239,16 @@ public class sudo {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            
+                            System.out.println(list);
                         }
 
-                        if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
-                            if (list.getFirst().equals(list.get(1))) {
+                        if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
+                            if (list.get(0).equals(list.get(1))) {
                                 for (int k = 0; k < 9; k++) {
 
-                                    if ((i == list.getFirst().getFirst().getFirst() && k == list.getFirst().getFirst().get(1)) || (i == list.getFirst().get(1).getFirst() && k == list.getFirst().get(1).get(1))) {
+                                    if ((i == list.get(0).get(0).get(0) && k == list.get(0).get(0).get(1)) || (i == list.get(0).get(1).get(0) && k == list.get(0).get(1).get(1))) {
                                         matrixlist[i][k].retainAll(numbs);
-                                        
+                                        System.out.println("Here" + matrixlist[i][k]);
                                     }
 
                                 }
@@ -270,15 +270,15 @@ public class sudo {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            
+                            System.out.println(list);
                         }
 
-                        if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
-                            if (list.getFirst().equals(list.get(1))) {
+                        if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
+                            if (list.get(0).equals(list.get(1))) {
                                 for (int k = 0; k < 9; k++) {
-                                    if ((k == list.getFirst().getFirst().getFirst() && j == list.getFirst().getFirst().get(1)) || (k == list.getFirst().get(1).getFirst() && j == list.getFirst().get(1).get(1))) {
+                                    if ((k == list.get(0).get(0).get(0) && j == list.get(0).get(0).get(1)) || (k == list.get(0).get(1).get(0) && j == list.get(0).get(1).get(1))) {
                                         matrixlist[k][j].retainAll(numbs);
-                                        
+                                        System.out.println("Here" + matrixlist[k][j]);
                                     }
 
                                 }
@@ -319,16 +319,16 @@ public class sudo {
                         if (value == 2) {
                             numbs.add(x);
                             list.add(lists);
-                            
+                            System.out.println(list);
                         }
 
-                        if (list.size() == 2 && !list.getFirst().isEmpty() && numbs.size() == 2) {
-                            if (list.getFirst().equals(list.get(1))) {
+                        if (list.size() == 2 && !list.get(0).isEmpty() && numbs.size() == 2) {
+                            if (list.get(0).equals(list.get(1))) {
                                 for (int row = startRow; row < startRow + 3; row++) {
                                     for (int col = startCol; col < startCol + 3; col++) {
-                                        if ((row == list.getFirst().getFirst().getFirst() && col == list.getFirst().getFirst().get(1)) || (row == list.getFirst().get(1).getFirst() && col == list.getFirst().get(1).get(1))) {
+                                        if ((row == list.get(0).get(0).get(0) && col == list.get(0).get(0).get(1)) || (row == list.get(0).get(1).get(0) && col == list.get(0).get(1).get(1))) {
                                             matrixlist[row][col].retainAll(numbs);
-                                            
+                                            System.out.println("Here" + matrixlist[row][col]);
                                         }
                                     }
                                 }
@@ -366,10 +366,10 @@ public class sudo {
                                 if (matrix[i][k] == 0) {
                                     for (int a = 0; a < 9; a++) {
                                         if (matrix[i][a] == 0) {
-                                            if (!matrixlist[i][a].equals(list2.getFirst())) {
-                                                matrixlist[i][a].removeAll(list2.getFirst());
+                                            if (!matrixlist[i][a].equals(list2.get(0))) {
+                                                matrixlist[i][a].removeAll(list2.get(0));
                                                 if (matrixlist[i][a].size() == 1) {
-                                                    matrix[i][a] = matrixlist[i][a].getFirst();
+                                                    matrix[i][a] = matrixlist[i][a].get(0);
                                                     num1 = 1;
                                                     solveSudoku(matrix, matrixlist);
 
@@ -394,10 +394,10 @@ public class sudo {
                         if (num2 == 3) {
                             for (int a = 0; a < 9; a++) {
                                 if (matrix[a][j] == 0) {
-                                    if (!matrixlist[a][j].equals(list2.getFirst())) {
-                                        matrixlist[a][j].removeAll(list2.getFirst());
+                                    if (!matrixlist[a][j].equals(list2.get(0))) {
+                                        matrixlist[a][j].removeAll(list2.get(0));
                                         if (matrixlist[a][j].size() == 1) {
-                                            matrix[a][j] = matrixlist[a][j].getFirst();
+                                            matrix[a][j] = matrixlist[a][j].get(0);
                                             solveSudoku(matrix, matrixlist);
                                         }
                                     }
@@ -429,10 +429,10 @@ public class sudo {
                                 if (matrixlist[i][j].equals(matrixlist[i][k]) && k != j) {
                                     for (int a = 0; a < 9; a++) {
                                         if (matrix[i][a] == 0) {
-                                            if (!matrixlist[i][a].equals(list2.getFirst())) {
-                                                matrixlist[i][a].removeAll(list2.getFirst());
+                                            if (!matrixlist[i][a].equals(list2.get(0))) {
+                                                matrixlist[i][a].removeAll(list2.get(0));
                                                 if (matrixlist[i][a].size() == 1) {
-                                                    matrix[i][a] = matrixlist[i][a].getFirst();
+                                                    matrix[i][a] = matrixlist[i][a].get(0);
                                                     solveSudoku(matrix, matrixlist);
 
                                                 }
@@ -451,10 +451,10 @@ public class sudo {
                                 if (matrixlist[i][j].equals(matrixlist[k][j]) && k != i) {
                                     for (int a = 0; a < 9; a++) {
                                         if (matrix[a][j] == 0) {
-                                            if (!matrixlist[a][j].equals(list2.getFirst())) {
-                                                matrixlist[a][j].removeAll(list2.getFirst());
+                                            if (!matrixlist[a][j].equals(list2.get(0))) {
+                                                matrixlist[a][j].removeAll(list2.get(0));
                                                 if (matrixlist[a][j].size() == 1) {
-                                                    matrix[a][j] = matrixlist[a][j].getFirst();
+                                                    matrix[a][j] = matrixlist[a][j].get(0);
                                                     solveSudoku(matrix, matrixlist);
                                                 }
                                             }
@@ -487,11 +487,11 @@ public class sudo {
                         for (int row = startRow; row < startRow + 3; row++) {
                             for (int col = startCol; col < startCol + 3; col++) {
                                 if (matrix[row][col] == 0) {
-                                    if (list.getFirst().equals(matrixlist[row][col]) && ((row != i && col == j) || (row == i && col != j))) {
+                                    if (list.get(0).equals(matrixlist[row][col]) && ((row != i && col == j) || (row == i && col != j))) {
                                         for (row = startRow; row < startRow + 3; row++) {
                                             for (col = startCol; col < startCol + 3; col++) {
                                                 if (matrix[row][col] == 0) {
-                                                    if (!list.isEmpty() && !list.getFirst().equals(matrixlist[row][col])) {
+                                                    if (!list.isEmpty() && !list.get(0).equals(matrixlist[row][col])) {
 
                                                         matrixlist[row][col].removeAll(list.get(0));
 
@@ -542,6 +542,8 @@ public class sudo {
                             tempNumbers.remove((Integer) matrix[row][col]);
                         }
                     }
+
+                    System.out.println("(" + i + ", " + j + "): " + tempNumbers);
                     if (tempNumbers.size() == 1) {
                         matrix[i][j] = tempNumbers.get(0);
                         changed = true;
@@ -589,7 +591,7 @@ public class sudo {
                         }
                     }
                     if (!list2.isEmpty() && list2.get(0).size() == 1) {
-                        matrix[i][j] = list2.getFirst().getFirst();
+                        matrix[i][j] = list2.get(0).get(0);
                         putNumbers(matrix, matrixlist);
                     }
 
@@ -609,11 +611,11 @@ public class sudo {
                         }
                     }
 
-    
+                    System.out.println(list2);
                     for (int x = 1; x < list2.size(); x++) {
                         list2.get(0).removeAll(list2.get(x));
                     }
-                    
+                    System.out.println(list2);
 
                     int startRow = i - i % 3;
                     int startCol = j - j % 3;
@@ -627,7 +629,7 @@ public class sudo {
                         }
                     }
                     if (!list2.isEmpty() && list2.get(0).size() == 1) {
-                        matrix[i][j] = list2.getFirst().getFirst();
+                        matrix[i][j] = list2.get(0).get(0);
                         putNumbers(matrix, matrixlist);
                     }
 
